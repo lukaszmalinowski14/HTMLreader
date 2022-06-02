@@ -16,3 +16,4 @@ C:\Users\lukasz.malinowski\Documents\HTMLreader\obj\Debug\net5.0\HTMLreader.pdb
 C:\Users\lukasz.malinowski\Documents\HTMLreader\obj\Debug\net5.0\HTMLreader.genruntimeconfig.cache
 C:\Users\lukasz.malinowski\Documents\HTMLreader\bin\Debug\net5.0\HtmlAgilityPack.dll
 C:\Users\lukasz.malinowski\Documents\HTMLreader\obj\Debug\net5.0\HTMLreader.csproj.CopyComplete
+C:\Users\lukasz.malinowski\Documents\HTMLreader\bin\Debug\net5.0\Npgsql.dll

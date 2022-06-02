@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "0G0zaOM07wHG9w5O9+VfMoH8HE5WXAxe4coutLnqxbUuF0vPklu0IfGpSI89KR0xVXbf0jkcK6uZAb7g5BTQ3g==",
+  "dgSpecHash": "OtqTaY2efpkfLZWbYOSet0RjvgLGR7MHQjJhy8TSuBxKiBLlXaur9uE4WeM29ZEtk+vlwiZh8A3JmprNZRbSLA==",
   "success": true,
   "projectFilePath": "C:\\Users\\lukasz.malinowski\\Documents\\HTMLreader\\HTMLreader.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lukasz.malinowski\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512"
+    "C:\\Users\\lukasz.malinowski\\.nuget\\packages\\htmlagilitypack\\1.11.43\\htmlagilitypack.1.11.43.nupkg.sha512",
+    "C:\\Users\\lukasz.malinowski\\.nuget\\packages\\npgsql\\4.1.9\\npgsql.4.1.9.nupkg.sha512",
+    "C:\\Users\\lukasz.malinowski\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
   ],
   "logs": []
 }

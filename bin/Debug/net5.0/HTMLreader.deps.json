@@ -8,20 +8,33 @@
     ".NETCoreApp,Version=v5.0": {
       "HTMLreader/1.0.0": {
         "dependencies": {
-          "HtmlAgilityPack": "1.11.42"
+          "HtmlAgilityPack": "1.11.43",
+          "Npgsql": "4.1.9"
         },
         "runtime": {
           "HTMLreader.dll": {}
         }
       },
-      "HtmlAgilityPack/1.11.42": {
+      "HtmlAgilityPack/1.11.43": {
         "runtime": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {
-            "assemblyVersion": "1.11.42.0",
-            "fileVersion": "1.11.42.0"
+            "assemblyVersion": "1.11.43.0",
+            "fileVersion": "1.11.43.0"
           }
         }
-      }
+      },
+      "Npgsql/4.1.9": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Npgsql.dll": {
+            "assemblyVersion": "4.1.9.0",
+            "fileVersion": "4.1.9.0"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.6.0": {}
     }
   },
   "libraries": {
@@ -30,12 +43,26 @@
       "serviceable": false,
       "sha512": ""
     },
-    "HtmlAgilityPack/1.11.42": {
+    "HtmlAgilityPack/1.11.43": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LDc1bEfF14EY2DZzak4xvzWvbpNXK3vi1u0KQbBpLUN4+cx/VrvXhgCAMSJhSU5vz0oMfW9JZIR20vj/PkDHPA==",
-      "path": "htmlagilitypack/1.11.42",
-      "hashPath": "htmlagilitypack.1.11.42.nupkg.sha512"
+      "sha512": "sha512-C2gpt+S2tdFlQMOC3DK7rHZ8iv6EpDuIo4v0UTUSGX1F1bZ+NAQ3gp77HK8/JfCDszUm3Y2rHoyTp/TpO4KOIA==",
+      "path": "htmlagilitypack/1.11.43",
+      "hashPath": "htmlagilitypack.1.11.43.nupkg.sha512"
+    },
+    "Npgsql/4.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Afs+nX8OWZ8PPZRj7vdtjcj0xKQDZbl8b0jXUmDBuKgzEkHatX/fPu1NtgbCin14EkoyMMxKtQnagfoMC58i+Q==",
+      "path": "npgsql/4.1.9",
+      "hashPath": "npgsql.4.1.9.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
+      "path": "system.runtime.compilerservices.unsafe/4.6.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
     }
   }
 }

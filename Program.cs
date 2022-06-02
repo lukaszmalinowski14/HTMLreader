@@ -12,10 +12,11 @@ using System.Text.RegularExpressions;
 
 namespace HTMLreader
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
+            int licznikPlikow=0;
             String kod_L="";
             int Duration=0;
             List<Lka> Wynik = new();
@@ -33,6 +34,14 @@ namespace HTMLreader
          //   node.ToList().ForEach(i=>Console.WriteLine(i.InnerText));
 
          //   var test1 = node.ToList();
+            //TODO: POBRANIE TOWAROW
+            List<towary> listaTowarow = new();
+            towary.GetTowary(listaTowarow);
+            //TODO: POBRANIE KKW L
+            List<KKW> listaKKW = new();
+            KKW.GetKKW(listaKKW);
+            //TODO: PEtla dla kazdego pliku
+            licznikPlikow=licznikPlikow+1;
 
             int ZnacznikSekcjiDetali=0;
             List<Lka> lstRecords=new List<Lka>();
@@ -109,11 +118,29 @@ namespace HTMLreader
                        Wynik.Add(new Lka()
                         {
                             Name=kod_L,
-                            Time=Convert.ToInt32(Duration*1.2)
+                            Time=Convert.ToInt32(Duration*1.2),
+                            LP=licznikPlikow
                         });  
                     } 
             }
 
+            //pobierz listę numerów
+            var licznikDoPetli = Wynik.Select(a=>a.LP).ToList().Distinct();
+            foreach(var element in licznikDoPetli)
+            {
+                List<Lka> ListTempWynik = new();
+                ListTempWynik=Wynik.Where(X=>X.LP==element).ToList();
+                
+                List<KKW> ListTempKKWl = listaKKW.Where(X=>X.Licznik_Elementow==ListTempWynik.Count()).ToList();
+
+
+
+                Console.WriteLine("");
+
+               // var a = ints1.All(ints2.Contains);
+
+
+            }
             Console.WriteLine("KONIEC");
 
         }
@@ -122,6 +149,7 @@ namespace HTMLreader
         {
             public string Name { get; set; }
             public int Time { get; set; } //w sekundach
+            public int LP { get; set; } 
 
             // Lka(string name, double time)
             // {

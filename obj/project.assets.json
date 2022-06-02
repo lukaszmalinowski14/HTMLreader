@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "HtmlAgilityPack/1.11.42": {
+      "HtmlAgilityPack/1.11.43": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
@@ -10,18 +10,39 @@
         "runtime": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
+      },
+      "Npgsql/4.1.9": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Npgsql.dll": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.6.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        }
       }
     }
   },
   "libraries": {
-    "HtmlAgilityPack/1.11.42": {
-      "sha512": "LDc1bEfF14EY2DZzak4xvzWvbpNXK3vi1u0KQbBpLUN4+cx/VrvXhgCAMSJhSU5vz0oMfW9JZIR20vj/PkDHPA==",
+    "HtmlAgilityPack/1.11.43": {
+      "sha512": "C2gpt+S2tdFlQMOC3DK7rHZ8iv6EpDuIo4v0UTUSGX1F1bZ+NAQ3gp77HK8/JfCDszUm3Y2rHoyTp/TpO4KOIA==",
       "type": "package",
-      "path": "htmlagilitypack/1.11.42",
+      "path": "htmlagilitypack/1.11.43",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "htmlagilitypack.1.11.42.nupkg.sha512",
+        "htmlagilitypack.1.11.43.nupkg.sha512",
         "htmlagilitypack.nuspec",
         "lib/Net35/HtmlAgilityPack.dll",
         "lib/Net35/HtmlAgilityPack.pdb",
@@ -61,11 +82,57 @@
         "lib/uap10.0/HtmlAgilityPack.pdb",
         "lib/uap10.0/HtmlAgilityPack.pri"
       ]
+    },
+    "Npgsql/4.1.9": {
+      "sha512": "Afs+nX8OWZ8PPZRj7vdtjcj0xKQDZbl8b0jXUmDBuKgzEkHatX/fPu1NtgbCin14EkoyMMxKtQnagfoMC58i+Q==",
+      "type": "package",
+      "path": "npgsql/4.1.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Npgsql.dll",
+        "lib/net461/Npgsql.xml",
+        "lib/netcoreapp3.0/Npgsql.dll",
+        "lib/netcoreapp3.0/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "lib/netstandard2.1/Npgsql.dll",
+        "lib/netstandard2.1/Npgsql.xml",
+        "npgsql.4.1.9.nupkg.sha512",
+        "npgsql.nuspec",
+        "postgresql.png"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.6.0": {
+      "sha512": "HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "HtmlAgilityPack >= *"
+      "HtmlAgilityPack >= *",
+      "Npgsql >= 4.1.9"
     ]
   },
   "packageFolders": {
@@ -108,6 +175,10 @@
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[*, )"
+          },
+          "Npgsql": {
+            "target": "Package",
+            "version": "[4.1.9, )"
           }
         },
         "imports": [

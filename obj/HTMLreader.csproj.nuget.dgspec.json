@@ -41,6 +41,10 @@
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[*, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[4.1.9, )"
             }
           },
           "imports": [
