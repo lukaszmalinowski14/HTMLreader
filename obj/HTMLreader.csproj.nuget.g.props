@@ -15,4 +15,7 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_VisualStudio_UnitTesting Condition=" '$(PkgMicrosoft_VisualStudio_UnitTesting)' == '' ">C:\Users\lukasz.malinowski\.nuget\packages\microsoft.visualstudio.unittesting\11.0.50727.1</PkgMicrosoft_VisualStudio_UnitTesting>
+  </PropertyGroup>
 </Project>

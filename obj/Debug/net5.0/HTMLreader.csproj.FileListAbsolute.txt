@@ -17,3 +17,4 @@ C:\Users\lukasz.malinowski\Documents\HTMLreader\obj\Debug\net5.0\HTMLreader.genr
 C:\Users\lukasz.malinowski\Documents\HTMLreader\bin\Debug\net5.0\HtmlAgilityPack.dll
 C:\Users\lukasz.malinowski\Documents\HTMLreader\obj\Debug\net5.0\HTMLreader.csproj.CopyComplete
 C:\Users\lukasz.malinowski\Documents\HTMLreader\bin\Debug\net5.0\Npgsql.dll
+C:\Users\lukasz.malinowski\Documents\HTMLreader\bin\Debug\net5.0\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll

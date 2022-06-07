@@ -11,6 +11,15 @@
           "lib/netstandard2.0/HtmlAgilityPack.dll": {}
         }
       },
+      "Microsoft.VisualStudio.UnitTesting/11.0.50727.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll": {}
+        }
+      },
       "Npgsql/4.1.9": {
         "type": "package",
         "dependencies": {
@@ -83,6 +92,24 @@
         "lib/uap10.0/HtmlAgilityPack.pri"
       ]
     },
+    "Microsoft.VisualStudio.UnitTesting/11.0.50727.1": {
+      "sha512": "DoqQ6Zl7GcytRa1isWv20MyV1znFRDje6k/y3edbew3Qx/Z1r5Cf6rBktD7lGxN97d2VVC5RzdFHw+dci9lsMw==",
+      "type": "package",
+      "path": "microsoft.visualstudio.unittesting/11.0.50727.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-LICENSE.txt",
+        "lib/net45/Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll",
+        "lib/net45/Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml",
+        "microsoft.visualstudio.unittesting.11.0.50727.1.nupkg.sha512",
+        "microsoft.visualstudio.unittesting.nuspec",
+        "tools/net45/MSTest.exe",
+        "tools/net45/MSTest.exe.config"
+      ]
+    },
     "Npgsql/4.1.9": {
       "sha512": "Afs+nX8OWZ8PPZRj7vdtjcj0xKQDZbl8b0jXUmDBuKgzEkHatX/fPu1NtgbCin14EkoyMMxKtQnagfoMC58i+Q==",
       "type": "package",
@@ -132,6 +159,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "HtmlAgilityPack >= *",
+      "Microsoft.VisualStudio.UnitTesting >= *",
       "Npgsql >= 4.1.9"
     ]
   },
@@ -176,6 +204,10 @@
             "target": "Package",
             "version": "[*, )"
           },
+          "Microsoft.VisualStudio.UnitTesting": {
+            "target": "Package",
+            "version": "[*, )"
+          },
           "Npgsql": {
             "target": "Package",
             "version": "[4.1.9, )"
@@ -199,5 +231,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „Microsoft.VisualStudio.UnitTesting 11.0.50727.1” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8” zamiast platformy docelowej projektu „net5.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "Microsoft.VisualStudio.UnitTesting",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
