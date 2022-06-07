@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text;
 
 namespace HTMLreader
 {
@@ -24,8 +25,9 @@ namespace HTMLreader
             List<Lka> Wynik = new();
             List<string> listaTest2 = new();
             Console.WriteLine("Hello World!");
+            string Ilosc="";
 
-            var path = @"C:\\Dane\test.html";
+        //    var path = @"C:\\Dane\test.html";
 		
             var doc = new HtmlDocument();
          //   var doc2 = new HtmlDocument();
@@ -45,9 +47,16 @@ namespace HTMLreader
 
             // Get list of files in the specific directory.
         // ... Please change the first argument.
-      //      String[] files = Directory.GetFiles(@"\\10.1.5.47\Serwer\DZ-Prod\Tech_Prog\programy\","*.*",SearchOption.AllDirectories); //"Pakiet produkcyjny" && ".html"
-            var directories = Directory.GetDirectories(@"\\10.1.5.47\Serwer\DZ-Prod\Tech_Prog\programy\","*.*",SearchOption.AllDirectories);//.Where(X=>X.Contains(@"\2022\")); //"Pakiet produkcyjny" && ".html"
-            List<string> directoreisFilter =directories.Where(X=>X.Contains(@"\2022\")).ToList();
+            // var directories = Directory.GetDirectories(@"\\10.1.5.47\Serwer\DZ-Prod\Tech_Prog\programy\HYDRAULIK\2022\03\130_brak\","*.*",SearchOption.AllDirectories); //"Pakiet produkcyjny" && ".html"
+            // List<string> directoriesAll=directories.ToList();
+            //**************************************************************************************************************************************************************************************
+            var directories = Directory.GetDirectories(@"\\10.1.5.47\Serwer\DZ-Prod\Tech_Prog\programy\Alstom RLH\2022\04\228_brak","*.*",SearchOption.AllDirectories);//.Where(X=>X.Contains(@"\2022\")); //"Pakiet produkcyjny" && ".html"
+            List<string> directoreisFilter =directories.Where(X=>(X.Contains(@"\2021\12\") || X.Contains(@"\2022\"))).ToList();
+         //   var directories2 = Directory.GetDirectories(@"\\10.1.5.47\Serwer\DZ-Prod\Tech_Prog\Programy_waterjet\","*.*",SearchOption.AllDirectories);//.Where(X=>X.Contains(@"\2022\")); //"Pakiet produkcyjny" && ".html"
+         //   List<string> directoreis2Filter =directories2.ToList();
+
+         //   List<string> directoriesAll=directoreisFilter.Concat(directoreis2Filter).ToList();
+
     
             //TODO: PEtla dla kazdej kolalizacji
             foreach(var elementLok in directoreisFilter)
@@ -75,6 +84,9 @@ namespace HTMLreader
             string plik=fiArray2.FirstOrDefault().FullName.ToString();
             doc.Load(fiArray2.FirstOrDefault().FullName.ToString());
            // doc.Load(path);
+         //  string tsgfgf=doc.DocumentNode.OuterHtml;
+        //   if(doc.DocumentNode.OuterHtml.Contains("//div"))
+         //  {
             foreach (HtmlNode node in doc.DocumentNode.SelectNodes("//div"))
             {
                 if(node.InnerText.Contains("Informacja o pojedynczym detalu:"))
@@ -115,6 +127,7 @@ namespace HTMLreader
                             if( nodeTest!=null)
                     {
                         int znacznikCzasTrwania=0;
+                        int znacznikSzt=0;
                          foreach (HtmlNode node3 in node2.SelectNodes(".//td"))
                     {       
                             string wartosc= (string)node3.InnerText;
@@ -140,6 +153,24 @@ namespace HTMLreader
                                 listaTest2.Add("Czas trwania:");
                                 znacznikCzasTrwania=1;
                             }
+
+                            //ILOSC
+
+                            if(znacznikSzt==1)
+                            {
+                                //przygotowanie danych o czasie w sekundach
+                                Ilosc =wartosc;
+                             //   record.
+                                listaTest2.Add(Ilosc);
+                                znacznikSzt=0;
+                            }
+
+                            if(wartosc.Contains("Szt.:"))
+                            {
+                                listaTest2.Add("SZt.:");
+                                znacznikSzt=1;
+                            }
+
                     }
                     }
                     }
@@ -154,13 +185,17 @@ namespace HTMLreader
                         {
                             Name=kod_L,
                             Time=Convert.ToInt32(Duration*1.2),
-                            LP=licznikPlikow
+                            LP=licznikPlikow,
+                            ilosc=Ilosc
+
                         });  
                         kod_L="";
                         Duration=0;
+                        Ilosc="";
 
                     } 
             }
+   //         }
             }
 
             //pobierz listę numerów
@@ -178,7 +213,10 @@ namespace HTMLreader
                     List<string> towaryZpliku = new();
                     foreach(var elementPliku in ListTempWynik)
                     {
-                        towaryZpliku.Add(elementPliku.Name);
+                        StringBuilder sb = new StringBuilder(elementPliku.Name.ToUpper());
+                        sb.Append('_');
+                        sb.Append(elementPliku.ilosc);
+                        towaryZpliku.Add(sb.ToString());
                     }
 
                 foreach(var element2 in ListTempKKWl)
@@ -186,32 +224,28 @@ namespace HTMLreader
                     int kwh_idheadu=element2.kwh_idheadu;
                    
                     //TODO: LISTA Z KKW
+                    //kody
                     List<String> towaryZkkw = new();
                     string[] arrayTemp = element2.towary.ToString().Split(';');
+                    //ilosc
+                     List<String> ilosciZkkw = new();
+                    string[] arrayTempilosci = element2.ilosci.ToString().Split(';');
+
+                    int licznik=0;
                      foreach(var elementKKW in arrayTemp)
                     {
-                        towaryZkkw.Add(elementKKW);
+                        StringBuilder sb = new StringBuilder(elementKKW.ToUpper());
+                        sb.Append('_');
+                        sb.Append(arrayTempilosci[licznik]);
+                        towaryZkkw.Add(sb.ToString());
+
+                        licznik=licznik+1;
                     }
 
                     //TODO: PORÓWNANIE LIST
+                  //  var rowne = new HashSet<String>(set, StringComparer.OrdinalIgnoreCase);
                     var rowne = new HashSet<String>(towaryZpliku).SetEquals(towaryZkkw);
-                //     try
-                //     {
-                //     CollectionAssert.AreEquivalent(towaryZpliku, towaryZkkw);
-                //     foreach(var elementP in ListTempWynik)
-                //         {
-                //             Raport.Add(new raport()
-                //             {
-                //                 ttw_idtowaru=Convert.ToInt32(listaTowarow.Where(X=>X.ttw_klucz==elementP.Name).Select(a=>a.ttw_idtowaru).FirstOrDefault()),
-                //                 kwh_idheadu=kwh_idheadu,
-                //                 CzasLki=elementP.Time//Convert.ToInt32(ListTempWynik.Where(X=>X.Name==elementP.Name).Select(a=>a.Time)),
-                //             }); 
-                //         } 
-                // //    Wynik.Clear();
-                //         break;
-                //     }
-                //     catch
-                //     {}
+
                     if(rowne)
                     {   
                         foreach(var elementP in ListTempWynik)
@@ -228,11 +262,6 @@ namespace HTMLreader
                     }
                 //    Console.WriteLine("");
                 }
-                
-
-               // var a = ints1.All(ints2.Contains);
-
-
             }
             
             //TODO: ZAPISANIE RPORTU DO DB
@@ -246,6 +275,7 @@ namespace HTMLreader
             public string Name { get; set; }
             public int Time { get; set; } //w sekundach
             public int LP { get; set; } 
+            public string ilosc{get;set;}
 
             // Lka(string name, double time)
             // {

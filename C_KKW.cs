@@ -20,6 +20,7 @@ namespace HTMLreader
         public int kwh_idheadu {get; set;}
         public string towary {get; set;}
         public int Licznik_Elementow {get; set;}
+        public string ilosci {get; set;}
     
 
       public static void GetKKW(List<KKW> listaKKW)
@@ -41,6 +42,7 @@ namespace HTMLreader
                                 kwh_idheadu=int.Parse(myReader["kwh_idheadu"].ToString()),
                                 towary=myReader["towary"].ToString(),
                                 Licznik_Elementow=int.Parse(myReader["Licznik_Elementow"].ToString()),
+                                ilosci=myReader["ilosci"].ToString()
                             });
                     }
                }
